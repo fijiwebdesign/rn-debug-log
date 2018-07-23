@@ -23,17 +23,26 @@ yarn add debug-log
 # Usage
 
 ```
-// globally enable debug if in dev mode
-if (global.__DEV__ || process.env.NODE_ENV === 'development') {
-  require('debug-log').enable('myapp:*')
-  // require('debug-log').use(console) // custom logger
-}
 
-const debug = require('debug-log')('myapp:component:api')
+const debug = require('rn-debug-log')('myapp:component:api')
 debug.log('Initializing')
 fetch('https://example.com/api')
   .then(() => debug.log('Api request success'))
   .catch(() => debug.warn('Network error'))
 
+```
+
+# Enable 
+
+Currently `rn-debug-log` is only enabled when `__DEV__` is true. 
+
+## Future API
+
+```
+// globally enable debug if in dev mode
+if (global.__DEV__ || process.env.NODE_ENV === 'development') {
+  require('debug-log').enable('myapp:*')
+  require('debug-log').use(console) // custom logger
+}
 ```
 

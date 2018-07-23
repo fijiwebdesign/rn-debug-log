@@ -2,7 +2,7 @@ const ColorHash = require('color-hash')
 const Timer = require('./timer')
 
 module.exports = ns => {
-  //if (!__DEV__) return () => {}
+  if (!global.__DEV__) return () => {}
 
   const color = (new ColorHash()).hex(ns)
   const css = `color: ${color}; font-weight: bold;`
