@@ -1,7 +1,6 @@
 # Debug log
 
 Lightweight debug logging to console, tty, file etc. 
-With console.log, console.warn, console.error etc. semantics
 
 # Features
 
@@ -15,6 +14,7 @@ Work in progress
 * &#10005; Custom loggers middleware
 * &#10004; Correct Line numbers in browser console, tty, file and node, react or react-native debug console
 * &#10004; Time difference in ms between debug calls per namespace
+* &#10005; With console.log, console.warn, console.error etc. semantics
 
 # Install
 
@@ -27,9 +27,9 @@ yarn add https://github.com/fijiwebdesign/rn-debug-log
 ```
 
 const debug = require('rn-debug-log')('myapp:component:api')
-debug.log('Initializing')
+debug('Initializing')
 fetch('https://example.com/api')
-  .then(() => debug.log('Api request success'))
+  .then(() => debug('Api request success'))
   .catch(() => debug.warn('Network error'))
 
 ```

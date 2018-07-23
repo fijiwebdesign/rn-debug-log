@@ -2,10 +2,12 @@ const ColorHash = require('color-hash')
 const Timer = require('./timer')
 
 module.exports = ns => {
-  if (!global.__DEV__) return () => {}
+  if (!global.window.document && !global.__DEV__ || process.env.NODE_ENV === 'production') {
+    return () => {}
+  }
 
   const color = (new ColorHash()).hex(ns)
-  const css = `color: ${color}; font-weight: bold;`
+  const css = `color: ${color};`
 
   let time = (new Date()).getTime()
   const date = new Date()
