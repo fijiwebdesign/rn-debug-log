@@ -17,5 +17,5 @@ module.exports = ns => {
   }
 
   return console.log
-    .bind(console, '%c%s +%sms', css, ns, date)
+    .bind(console, '%c%s +%s', css, ns,  date)
 }

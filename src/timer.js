@@ -6,7 +6,7 @@ class Timer {
     this.hours = + (ms/(1000*60*60*24)).toFixed(2)
   }
 
-  get format() {
+  format() {
     return (this.ms > 1000*60*60*24) ? this.hours + 'h'
       : (this.ms > 1000*60*60) ? this.minutes + 'm'
       : (this.ms >= 1000) ? this.seconds + 's'
