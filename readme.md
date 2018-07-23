@@ -5,6 +5,8 @@ With console.log, console.warn, console.error etc. semantics
 
 # Features
 
+* Currently only tested in React Native, though should work in React and browsers. 
+
 Work in progress
 
 * &#10005; Namespaces toggling and highlighting
@@ -17,7 +19,7 @@ Work in progress
 # Install
 
 ```
-yarn add debug-log
+yarn add https://github.com/fijiwebdesign/rn-debug-log
 ```
 
 # Usage
@@ -41,8 +43,8 @@ Currently `rn-debug-log` is only enabled when `__DEV__` is true.
 ```
 // globally enable debug if in dev mode
 if (global.__DEV__ || process.env.NODE_ENV === 'development') {
-  require('debug-log').enable('myapp:*')
-  require('debug-log').use(console) // custom logger
+  require('rn-debug-log').enable('myapp:*')
+  require('rn-debug-log').use(console) // custom logger
 }
 ```
 
