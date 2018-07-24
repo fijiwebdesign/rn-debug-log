@@ -1,8 +1,12 @@
 const ColorHash = require('color-hash')
 const Timer = require('./timer')
 
-module.exports = ns => {
-  if (!global.window.document && !global.__DEV__ || process.env.NODE_ENV === 'production') {
+const enabled = null
+
+const debug = ns => {
+  if (  !enabled 
+    && !global.window.document 
+    && !global.__DEV__ || process.env.NODE_ENV === 'production') {
     return () => {}
   }
 
@@ -21,3 +25,9 @@ module.exports = ns => {
   return console.log
     .bind(console, '%c%s +%s', css, ns,  date)
 }
+
+debug.enable = pattern => {
+  enabled = pattern
+}
+
+module.exports = debug
